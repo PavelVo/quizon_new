@@ -175,6 +175,11 @@ const Rooms: React.FC = () => {
               </div>
             )}
           </div>
+
+          <div>
+            <PlayerTracker roomId={roomId} />
+          </div>
+
         </div>
       </div>
     </div>
