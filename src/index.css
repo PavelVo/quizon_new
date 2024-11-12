@@ -4,17 +4,17 @@
 
 @layer base {
   body {
-    @apply text-gray-900 bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen;
+    @apply text-gray-900 bg-gradient-to-br from-violet-50 to-indigo-50 min-h-screen font-sans;
   }
 }
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply px-4 py-2.5 rounded-xl transition-all duration-200 font-medium shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2;
   }
   
   .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+    @apply bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
   }
   
   .btn-secondary {
@@ -22,19 +22,27 @@
   }
   
   .btn-danger {
-    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+    @apply bg-rose-600 text-white hover:bg-rose-700 focus:ring-2 focus:ring-rose-500 focus:ring-offset-2;
   }
 
   .input {
-    @apply w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200;
+    @apply w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm;
   }
 
   .card {
-    @apply bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6;
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 p-6;
   }
 
   .container-custom {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/20;
+  }
+
+  .glass-input {
+    @apply bg-white/50 backdrop-blur-sm border-white/20 focus:bg-white/70;
   }
 }
 
@@ -50,5 +58,18 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .7;
   }
 }
