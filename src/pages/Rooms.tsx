@@ -16,6 +16,7 @@ const Rooms: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const players = UserListDisplay(roomId);
+  const userName = user.firstName || user.username || user.fullName || 'Unknown'; // Получаем имя пользователя
 
   useEffect(() => {
     const fetchRoomName = async () => {
@@ -91,13 +92,14 @@ const Rooms: React.FC = () => {
 
   const currentUser = players.find((player) => player.user_token === user?.id);
   const otherPlayers = players.filter((player) => player.user_token !== user?.id);
+  console.log(user)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-50 to-indigo-50 p-4 sm:p-6">
       <div className="max-w-6xl mx-auto">
         <header className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
           <h1 className="text-3xl font-bold text-gray-900">
-            Welcome, {user?.firstName}!
+            Welcome, {userName} 👋!
           </h1>
           <div className="flex gap-3 w-full sm:w-auto">
             <button

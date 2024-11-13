@@ -14,6 +14,7 @@ const HomePage: React.FC = () => {
   const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
   const [newRoomName, setNewRoomName] = useState('');
   const [isPrivate, setIsPrivate] = useState(false); // Changed to isPrivate
+  const userName = user.firstName || user.username || user.fullName || 'Unknown'; // Получаем имя пользователя
 
   useEffect(() => {
     fetchRooms(); // Fetch rooms on component mount
@@ -92,16 +93,16 @@ const HomePage: React.FC = () => {
     toast.success('Link copied to clipboard!');
   };
 
-  // Function to enter the room as organizer
-  const handleEnterAsOrganizer = (roomId: string) => {
-    navigate(`/organizer/${roomId}`); // Redirect to the OrganizerRoom page
-  };
+  // // Function to enter the room as organizer
+  // const handleEnterAsOrganizer = (roomId: string) => {
+  //   navigate(`/organizer/${roomId}`); // Redirect to the OrganizerRoom page
+  // };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-white p-6">
       <div className="max-w-6xl mx-auto">
         <header className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Welcome, {user?.firstName}!</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Welcome, {userName}! 👋</h1>
           <button
             onClick={() => {
               // console.log('Sign Out button clicked');
